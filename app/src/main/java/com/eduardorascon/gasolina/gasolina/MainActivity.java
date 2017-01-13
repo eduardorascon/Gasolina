@@ -1,5 +1,7 @@
 package com.eduardorascon.gasolina.gasolina;
 
+import android.content.Context;
+import android.content.res.AssetManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -23,5 +25,10 @@ public class MainActivity extends AppCompatActivity {
 
         TextView x = (TextView) findViewById(R.id.textView);
         x.setText("" + csv_items.size());
+    }
+
+    public final void readCSV(Context context){
+        AssetManager assetManager = context.getAssets();
+        //http://stackoverflow.com/questions/5360628/get-and-parse-csv-file-in-android
     }
 }
