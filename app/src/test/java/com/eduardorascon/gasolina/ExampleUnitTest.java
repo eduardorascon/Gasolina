@@ -1,4 +1,4 @@
-package com.eduardorascon.gasolina.gasolina;
+package com.eduardorascon.gasolina;
 
 import org.junit.Test;
 

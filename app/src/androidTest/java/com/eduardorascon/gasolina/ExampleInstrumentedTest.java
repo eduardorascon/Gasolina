@@ -1,4 +1,4 @@
-package com.eduardorascon.gasolina.gasolina;
+package com.eduardorascon.gasolina;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
