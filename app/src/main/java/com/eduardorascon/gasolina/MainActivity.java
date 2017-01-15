@@ -6,6 +6,7 @@ import android.renderscript.ScriptGroup;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.TypedValue;
+import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 
@@ -30,5 +31,11 @@ public class MainActivity extends AppCompatActivity {
 
         TextView x = (TextView) findViewById(R.id.textView);
         x.setText("" + items.size());
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
     }
 }
