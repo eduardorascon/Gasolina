@@ -12,6 +12,7 @@ import com.eduardorascon.gasolina.pojos.PrecioGasolina;
 import org.w3c.dom.Text;
 
 import java.util.List;
+import java.util.StringTokenizer;
 
 public class PrecioGasolinaAdapter extends RecyclerView.Adapter<PrecioGasolinaAdapter.MyViewHolder> {
     private List<PrecioGasolina> listaDePrecios;
@@ -29,7 +30,7 @@ public class PrecioGasolinaAdapter extends RecyclerView.Adapter<PrecioGasolinaAd
     @Override
     public void onBindViewHolder(PrecioGasolinaAdapter.MyViewHolder holder, int position) {
         PrecioGasolina precio = listaDePrecios.get(position);
-        holder.region.setText(precio.getNumeroDeRegion());
+        holder.region.setText(String.valueOf(precio.getNumeroDeRegion()));
         holder.nombre.setText(precio.getNombreDeRegion());
     }
 
@@ -39,7 +40,7 @@ public class PrecioGasolinaAdapter extends RecyclerView.Adapter<PrecioGasolinaAd
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView nombre, region;
+        public TextView nombre, region;
 
         public MyViewHolder(View view) {
             super(view);
