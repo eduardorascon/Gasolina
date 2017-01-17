@@ -47,6 +47,12 @@ public class MainActivity extends AppCompatActivity {
 
         TextView x = (TextView) findViewById(R.id.textView);
         x.setText("" + items.size());
+
+        for (String[] s : items) {
+            precioGasolinas.add(new PrecioGasolina(s[0], Integer.parseInt(s[1])));
+        }
+
+        adapter.notifyDataSetChanged();
     }
 
     @Override

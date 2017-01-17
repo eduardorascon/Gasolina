@@ -7,6 +7,11 @@ public class PrecioGasolina {
     public PrecioGasolina() {
     }
 
+    public PrecioGasolina(String nombreDeRegion, int numeroDeRegion){
+        this.nombreDeRegion = nombreDeRegion;
+        this.numeroDeRegion = numeroDeRegion;
+    }
+
     public String getNombreDeRegion() {
         return nombreDeRegion;
     }
