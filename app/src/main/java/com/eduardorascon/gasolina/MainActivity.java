@@ -5,12 +5,17 @@ import android.content.res.AssetManager;
 import android.renderscript.ScriptGroup;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
 import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 
 import com.eduardorascon.gasolina.R;
+import com.eduardorascon.gasolina.adapters.PrecioGasolinaAdapter;
+import com.eduardorascon.gasolina.pojos.PrecioGasolina;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -18,10 +23,21 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    private List<PrecioGasolina> precioGasolinas = new ArrayList<>();
+    private RecyclerView recyclerView;
+    private PrecioGasolinaAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        recyclerView =(RecyclerView) findViewById(R.id.recycler_view);
+        adapter = new PrecioGasolinaAdapter(precioGasolinas);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(adapter);
     }
 
     public void readCSVFile(View view) {
