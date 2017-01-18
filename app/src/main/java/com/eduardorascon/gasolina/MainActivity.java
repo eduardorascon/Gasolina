@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         x.setText("" + items.size());
 
         for (String[] s : items) {
-            precioGasolinas.add(new PrecioGasolina(s[0], Integer.parseInt(s[1])));
+            precioGasolinas.add(new PrecioGasolina(s[0], s[1], s[2], s[3]));
         }
 
         adapter.notifyDataSetChanged();
