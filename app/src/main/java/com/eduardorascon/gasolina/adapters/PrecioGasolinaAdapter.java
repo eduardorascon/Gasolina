@@ -9,10 +9,7 @@ import android.widget.TextView;
 import com.eduardorascon.gasolina.R;
 import com.eduardorascon.gasolina.pojos.PrecioGasolina;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
-import java.util.StringTokenizer;
 
 public class PrecioGasolinaAdapter extends RecyclerView.Adapter<PrecioGasolinaAdapter.MyViewHolder> {
     private List<PrecioGasolina> listaDePrecios;
@@ -30,8 +27,9 @@ public class PrecioGasolinaAdapter extends RecyclerView.Adapter<PrecioGasolinaAd
     @Override
     public void onBindViewHolder(PrecioGasolinaAdapter.MyViewHolder holder, int position) {
         PrecioGasolina precio = listaDePrecios.get(position);
-        holder.region.setText(String.valueOf(precio.getNumeroDeRegion()));
-        holder.nombre.setText(precio.getNombreDeRegion());
+        holder.region.setText(precio.getNombreDeRegion() + " - " + precio.getNumeroDeRegion());
+        holder.estado.setText(precio.getEstado());
+        holder.municipio.setText(precio.getMunicipio());
     }
 
     @Override
@@ -40,12 +38,13 @@ public class PrecioGasolinaAdapter extends RecyclerView.Adapter<PrecioGasolinaAd
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView nombre, region;
+        public TextView region, estado, municipio;
 
         public MyViewHolder(View view) {
             super(view);
-            nombre = (TextView) view.findViewById(R.id.textView2);
-            region = (TextView) view.findViewById(R.id.textView3);
+            region = (TextView) view.findViewById(R.id.textView2);
+            estado = (TextView) view.findViewById(R.id.textView3);
+            municipio=(TextView) view.findViewById(R.id.textView4);
         }
     }
 }
