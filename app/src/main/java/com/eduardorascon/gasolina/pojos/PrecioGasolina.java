@@ -7,11 +7,14 @@ public class PrecioGasolina {
     public PrecioGasolina() {
     }
 
-    public PrecioGasolina(String nombreDeRegion, String numeroDeRegion, String estado, String municipio) {
+    public PrecioGasolina(String nombreDeRegion, String numeroDeRegion, String estado, String municipio, String verde, String roja, String diesel) {
         this.numeroDeRegion = numeroDeRegion;
         this.nombreDeRegion = nombreDeRegion;
         this.estado = estado;
         this.municipio = municipio;
+        this.verde = verde;
+        this.roja = roja;
+        this.diesel = diesel;
     }
 
     public String getNombreDeRegion() {
@@ -44,5 +47,29 @@ public class PrecioGasolina {
 
     public void setMunicipio(String municipio) {
         this.municipio = municipio;
+    }
+
+    public String getVerde() {
+        return verde;
+    }
+
+    public void setVerde(String verde) {
+        this.verde = verde;
+    }
+
+    public String getRoja() {
+        return roja;
+    }
+
+    public void setRoja(String roja) {
+        this.roja = roja;
+    }
+
+    public String getDiesel() {
+        return diesel;
+    }
+
+    public void setDiesel(String diesel) {
+        this.diesel = diesel;
     }
 }
