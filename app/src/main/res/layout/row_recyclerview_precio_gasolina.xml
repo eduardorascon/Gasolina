@@ -7,12 +7,13 @@
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="0dp">
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:padding="16dp">
+            android:padding="2dp">
 
             <TextView
                 android:id="@+id/textView2"
@@ -21,6 +22,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:gravity="center_horizontal"
+                android:paddingBottom="6dp"
                 android:text="TextView"
                 android:textSize="20sp" />
 
@@ -31,6 +33,7 @@
                 android:layout_below="@id/textView2"
                 android:layout_centerHorizontal="true"
                 android:gravity="center_horizontal"
+                android:paddingBottom="6dp"
                 android:text="TextView" />
 
             <TextView
@@ -40,6 +43,7 @@
                 android:layout_below="@id/textView3"
                 android:layout_centerHorizontal="true"
                 android:gravity="center_horizontal"
+                android:paddingBottom="10dp"
                 android:text="TextView" />
 
             <LinearLayout
@@ -51,29 +55,29 @@
 
                 <ImageView
                     android:layout_width="0dp"
-                    android:layout_height="15dp"
+                    android:layout_height="10dp"
                     android:layout_alignParentBottom="true"
                     android:layout_weight="1"
                     android:background="#93ca3b" />
 
                 <Space
-                    android:layout_width="4dp"
+                    android:layout_width="2dp"
                     android:layout_height="1dp"></Space>
 
                 <ImageView
                     android:layout_width="0dp"
-                    android:layout_height="15dp"
+                    android:layout_height="10dp"
                     android:layout_alignParentBottom="true"
                     android:layout_weight="1"
                     android:background="#ff0030" />
 
                 <Space
-                    android:layout_width="4dp"
+                    android:layout_width="2dp"
                     android:layout_height="1dp"></Space>
 
                 <ImageView
                     android:layout_width="0dp"
-                    android:layout_height="15dp"
+                    android:layout_height="10dp"
                     android:layout_alignParentBottom="true"
                     android:layout_weight="1"
                     android:background="#bbbbbb" />
