@@ -27,7 +27,7 @@ public class PrecioGasolinaAdapter extends RecyclerView.Adapter<PrecioGasolinaAd
     @Override
     public void onBindViewHolder(PrecioGasolinaAdapter.MyViewHolder holder, int position) {
         PrecioGasolina precio = listaDePrecios.get(position);
-        holder.region.setText(precio.getNombreDeRegion() + " - " + precio.getNumeroDeRegion());
+        holder.region.setText("REGION " + precio.getNombreDeRegion() + " - " + precio.getNumeroDeRegion());
         holder.estado.setText(precio.getEstado());
         holder.municipio.setText(precio.getMunicipio());
     }
