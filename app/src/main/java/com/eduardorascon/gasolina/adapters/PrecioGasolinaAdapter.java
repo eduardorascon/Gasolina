@@ -9,21 +9,19 @@ import android.widget.TextView;
 import com.eduardorascon.gasolina.R;
 import com.eduardorascon.gasolina.pojos.PrecioGasolina;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
 
-public class PrecioGasolinaAdapter extends RecyclerView.Adapter<PrecioGasolinaAdapter.MyViewHolder> {
+public class PrecioGasolinaAdapter extends RecyclerView.Adapter<PrecioGasolinaAdapter.PrecioViewHolder> {
     private List<PrecioGasolina> listaDePrecios;
 
     public PrecioGasolinaAdapter(List<PrecioGasolina> listaDePrecios) {
         this.listaDePrecios = listaDePrecios;
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public class PrecioViewHolder extends RecyclerView.ViewHolder {
         public TextView region, estado, municipio, verde, roja, diesel;
 
-        public MyViewHolder(View view) {
+        public PrecioViewHolder(View view) {
             super(view);
             region = (TextView) view.findViewById(R.id.textView2);
             estado = (TextView) view.findViewById(R.id.textView3);
@@ -35,13 +33,13 @@ public class PrecioGasolinaAdapter extends RecyclerView.Adapter<PrecioGasolinaAd
     }
 
     @Override
-    public PrecioGasolinaAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public PrecioViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_recyclerview_precio_gasolina, parent, false);
-        return new MyViewHolder(view);
+        return new PrecioViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(PrecioGasolinaAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(PrecioViewHolder holder, int position) {
         PrecioGasolina precio = listaDePrecios.get(position);
         holder.region.setText("REGION " + precio.getNombreDeRegion() + " - " + precio.getNumeroDeRegion());
         holder.estado.setText(precio.getEstado());
