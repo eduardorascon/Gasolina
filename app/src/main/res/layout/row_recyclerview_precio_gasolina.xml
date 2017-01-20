@@ -49,7 +49,7 @@
                 android:layout_below="@id/textView3"
                 android:layout_centerHorizontal="true"
                 android:gravity="center_horizontal"
-                android:paddingBottom="10dp"
+                android:paddingBottom="18dp"
                 android:text="TextView" />
 
             <LinearLayout
@@ -58,23 +58,23 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/textView4"
                 android:orientation="horizontal"
-                android:paddingBottom="4dp">
+                android:paddingBottom="6dp">
 
                 <ImageView
                     android:layout_width="0dp"
-                    android:layout_height="8dp"
+                    android:layout_height="6dp"
                     android:layout_weight="1"
                     android:background="#93ca3b" />
 
                 <ImageView
                     android:layout_width="0dp"
-                    android:layout_height="8dp"
+                    android:layout_height="6dp"
                     android:layout_weight="1"
                     android:background="#ff0030" />
 
                 <ImageView
                     android:layout_width="0dp"
-                    android:layout_height="8dp"
+                    android:layout_height="6dp"
                     android:layout_weight="1"
                     android:background="#bbbbbb" />
             </LinearLayout>
@@ -94,8 +94,8 @@
                     android:text="TextView"
                     android:textAlignment="center"
                     android:textAllCaps="true"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    android:textColor="#93ca3b"
+                    android:textSize="32dp" />
 
                 <Space
                     android:layout_width="2dp"
@@ -109,8 +109,8 @@
                     android:text="TextView"
                     android:textAlignment="center"
                     android:textAllCaps="true"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    android:textColor="#ff0030"
+                    android:textSize="32dp" />
 
                 <Space
                     android:layout_width="2dp"
@@ -124,8 +124,8 @@
                     android:text="TextView"
                     android:textAlignment="center"
                     android:textAllCaps="true"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    android:textColor="#bbbbbb"
+                    android:textSize="32dp" />
 
             </LinearLayout>
         </RelativeLayout>
