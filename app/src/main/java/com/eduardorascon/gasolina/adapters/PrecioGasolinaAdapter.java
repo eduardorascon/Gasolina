@@ -1,6 +1,8 @@
 package com.eduardorascon.gasolina.adapters;
 
+import android.support.v7.util.SortedList;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.util.SortedListAdapterCallback;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +10,7 @@ import android.widget.TextView;
 
 import com.eduardorascon.gasolina.R;
 import com.eduardorascon.gasolina.pojos.PrecioGasolina;
+import com.github.wrdlbrnft.sortedlistadapter.SortedListAdapter;
 
 import java.util.List;
 
@@ -18,7 +21,7 @@ public class PrecioGasolinaAdapter extends RecyclerView.Adapter<PrecioGasolinaAd
         this.listaDePrecios = listaDePrecios;
     }
 
-    public class PrecioViewHolder extends RecyclerView.ViewHolder {
+    public class PrecioViewHolder extends SortedListAdapter.ViewHolder<PrecioGasolina> {
         public TextView region, estado, municipio, verde, roja, diesel;
 
         public PrecioViewHolder(View view) {
@@ -29,6 +32,11 @@ public class PrecioGasolinaAdapter extends RecyclerView.Adapter<PrecioGasolinaAd
             verde = (TextView) view.findViewById(R.id.textView5);
             roja = (TextView) view.findViewById(R.id.textView6);
             diesel = (TextView) view.findViewById(R.id.textView7);
+        }
+
+        @Override
+        protected void performBind(PrecioGasolina precioGasolina) {
+
         }
     }
 
