@@ -43,21 +43,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         recyclerView.setAdapter(adapter);
     }
 
-    public void readCSVFile(View view) {
-        InputStream inputStream = getResources().openRawResource(R.raw.testdata);
-        CSVReader csv = new CSVReader(inputStream);
-        List<String[]> items = csv.read();
-
-        TextView x = (TextView) findViewById(R.id.textView);
-        x.setText("" + items.size());
-
-        for (String[] s : items) {
-            precioGasolinas.add(new PrecioGasolina(s[0], s[1], s[2], s[3], s[4], s[5], s[6]));
-        }
-
-        adapter.notifyDataSetChanged();
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
@@ -71,6 +56,18 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     @Override
     public boolean onQueryTextSubmit(String query) {
+
+        InputStream inputStream = getResources().openRawResource(R.raw.testdata);
+        CSVReader reader = new CSVReader(inputStream);
+        List<String[]> lines = reader.search(query);
+
+        precioGasolinas.clear();
+        for (String[] s : lines) {
+            precioGasolinas.add(new PrecioGasolina(s[0], s[1], s[2], s[3], s[4], s[5], s[6]));
+        }
+
+        adapter.notifyDataSetChanged();
+
         return false;
     }
 

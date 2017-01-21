@@ -14,24 +14,25 @@ public class CSVReader {
         this.inputStream = is;
     }
 
-    public List<String[]> read(){
-        List<String[]> resultList = new ArrayList<String[]>();
+    public List<String[]> search(String searchigFor) {
+        List<String[]> resultList = new ArrayList<>();
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
 
         String csvLine;
         try {
             while ((csvLine = bufferedReader.readLine()) != null) {
                 String[] row = csvLine.split(",");
-                resultList.add(row);
+
+                if (row[3].toLowerCase().contains(searchigFor.toLowerCase()))
+                    resultList.add(row);
             }
         } catch (IOException e) {
             throw new RuntimeException("Error al leer el archivo. " + e);
-        }
-        finally {
+        } finally {
             try {
                 bufferedReader.close();
             } catch (IOException e) {
-                throw new RuntimeException("Error al cerrar lector." +e);
+                throw new RuntimeException("Error al cerrar lector." + e);
             }
         }
 

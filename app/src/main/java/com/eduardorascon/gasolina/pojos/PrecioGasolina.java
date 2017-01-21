@@ -18,29 +18,6 @@ public class PrecioGasolina implements SortedListAdapter.ViewModel {
         this.diesel = diesel;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        PrecioGasolina that = (PrecioGasolina) o;
-
-        if (!numeroDeRegion.equals(that.numeroDeRegion)) return false;
-        if (!nombreDeRegion.equals(that.nombreDeRegion)) return false;
-        if (!estado.equals(that.estado)) return false;
-        return municipio.equals(that.municipio);
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = numeroDeRegion.hashCode();
-        result = 31 * result + nombreDeRegion.hashCode();
-        result = 31 * result + estado.hashCode();
-        result = 31 * result + municipio.hashCode();
-        return result;
-    }
-
     public String getNombreDeRegion() {
         return nombreDeRegion;
     }
