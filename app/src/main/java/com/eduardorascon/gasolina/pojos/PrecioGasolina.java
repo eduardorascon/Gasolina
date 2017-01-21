@@ -1,10 +1,6 @@
 package com.eduardorascon.gasolina.pojos;
 
-import android.support.v7.widget.util.SortedListAdapterCallback;
-
-import com.github.wrdlbrnft.sortedlistadapter.SortedListAdapter;
-
-public class PrecioGasolina implements SortedListAdapter.ViewModel {
+public class PrecioGasolina  {
     private final String numeroDeRegion, nombreDeRegion, estado, municipio;
     private final String verde, roja, diesel;
 
