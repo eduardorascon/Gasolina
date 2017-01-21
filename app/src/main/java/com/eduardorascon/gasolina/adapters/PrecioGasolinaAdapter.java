@@ -23,7 +23,7 @@ public class PrecioGasolinaAdapter extends RecyclerView.Adapter<PrecioGasolinaAd
 
         public PrecioViewHolder(View view) {
             super(view);
-            region = (TextView) view.findViewById(R.id.textView2);
+            //region = (TextView) view.findViewById(R.id.textView2);
             estado = (TextView) view.findViewById(R.id.textView3);
             municipio = (TextView) view.findViewById(R.id.textView4);
             verde = (TextView) view.findViewById(R.id.textView5);
@@ -41,7 +41,7 @@ public class PrecioGasolinaAdapter extends RecyclerView.Adapter<PrecioGasolinaAd
     @Override
     public void onBindViewHolder(PrecioViewHolder holder, int position) {
         PrecioGasolina precio = listaDePrecios.get(position);
-        holder.region.setText("REGION " + precio.getNombreDeRegion() + " - " + precio.getNumeroDeRegion());
+        //holder.region.setText("REGION " + precio.getNombreDeRegion() + " - " + precio.getNumeroDeRegion());
         holder.estado.setText(precio.getEstado());
         holder.municipio.setText(precio.getMunicipio());
         holder.verde.setText(precio.getVerde());
