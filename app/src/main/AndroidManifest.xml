@@ -9,13 +9,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.eduardorascon.gasolina.MainActivity"
-            android:screenOrientation="portrait">
+            android:name="com.eduardorascon.gasolina.SplashScreenActivity"
+            android:theme="@style/SplashScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.eduardorascon.gasolina.MainActivity"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 
