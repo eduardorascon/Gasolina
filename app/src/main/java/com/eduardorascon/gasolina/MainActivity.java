@@ -22,11 +22,14 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private List<PrecioGasolina> precioGasolinas = new ArrayList<>();
     private RecyclerView recyclerView;
     private PrecioGasolinaAdapter adapter;
+    private TextView emptyDataTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        emptyTextView = (TextView) findViewById(R.id.empty_text_view);
 
         recyclerView =(RecyclerView) findViewById(R.id.recycler_view);
         adapter = new PrecioGasolinaAdapter(precioGasolinas);
@@ -60,6 +63,12 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         }
 
         adapter.notifyDataSetChanged();
+
+        if(precioGasolinas.size()==0){
+            emptyTextView.setVisibility(View.VISIBLE);
+        }else{
+            emptyTextView.setVisibility(View.GONE);
+        }
 
         return false;
     }
