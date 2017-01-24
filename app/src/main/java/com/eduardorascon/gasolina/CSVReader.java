@@ -20,11 +20,12 @@ public class CSVReader {
 
         String csvLine;
         try {
+            searchigFor = searchigFor.toLowerCase().replace("á", "a").replace("é", "e").replace("í", "i").replace("ó", "o").replace("ú", "u");
             while ((csvLine = bufferedReader.readLine()) != null) {
-                String[] row = csvLine.split(",");
+                csvLine = csvLine.toLowerCase().replace("á", "a").replace("é", "e").replace("í", "i").replace("ó", "o").replace("ú", "u");
 
-                if (row[3].toLowerCase().contains(searchigFor.toLowerCase()))
-                    resultList.add(row);
+                if (csvLine.contains(searchigFor))
+                    resultList.add(csvLine.split(","));
             }
         } catch (IOException e) {
             throw new RuntimeException("Error al leer el archivo. " + e);
