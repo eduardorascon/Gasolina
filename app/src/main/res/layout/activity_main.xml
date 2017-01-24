@@ -27,6 +27,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/background_icon_image_view"
-        android:text="Comienza buscando el Estado o la ciudad que te interesa." />
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:text="Comienza buscando el Estado o la ciudad que te interesa."
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textSize="16sp" />
 
 </RelativeLayout>
