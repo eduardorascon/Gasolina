@@ -9,6 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.eduardorascon.gasolina.adapters.PrecioGasolinaAdapter;
 import com.eduardorascon.gasolina.pojos.PrecioGasolina;
@@ -22,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private List<PrecioGasolina> precioGasolinas = new ArrayList<>();
     private RecyclerView recyclerView;
     private PrecioGasolinaAdapter adapter;
-    private TextView emptyDataTextView;
+    private TextView emptyTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         emptyTextView = (TextView) findViewById(R.id.empty_text_view);
 
-        recyclerView =(RecyclerView) findViewById(R.id.recycler_view);
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         adapter = new PrecioGasolinaAdapter(precioGasolinas);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
@@ -64,9 +66,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         adapter.notifyDataSetChanged();
 
-        if(precioGasolinas.size()==0){
+        if (precioGasolinas.size() == 0) {
             emptyTextView.setVisibility(View.VISIBLE);
-        }else{
+        } else {
             emptyTextView.setVisibility(View.GONE);
         }
 
