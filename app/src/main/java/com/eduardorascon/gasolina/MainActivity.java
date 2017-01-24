@@ -10,6 +10,7 @@ import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.eduardorascon.gasolina.adapters.PrecioGasolinaAdapter;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private RecyclerView recyclerView;
     private PrecioGasolinaAdapter adapter;
     private TextView emptyTextView;
+    private ImageView backgroundIconImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         setContentView(R.layout.activity_main);
 
         emptyTextView = (TextView) findViewById(R.id.empty_text_view);
+        backgroundIconImageView = (ImageView) findViewById(R.id.background_icon_image_view);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         adapter = new PrecioGasolinaAdapter(precioGasolinas);
@@ -68,8 +71,10 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         if (precioGasolinas.size() == 0) {
             emptyTextView.setVisibility(View.VISIBLE);
+            backgroundIconImageView.setVisibility(View.VISIBLE);
         } else {
             emptyTextView.setVisibility(View.GONE);
+            backgroundIconImageView.setVisibility(View.GONE);
         }
 
         return false;
