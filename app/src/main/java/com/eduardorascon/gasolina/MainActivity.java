@@ -58,6 +58,14 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     @Override
     public boolean onQueryTextSubmit(String query) {
 
+        if(query == null || query.trim().isEmpty()){
+            emptyTextView.setVisibility(View.VISIBLE);
+            emptyTextView.setText("LA BUSQUEDA ES INCORRECTA. INTENTAR BUSCAR NUEVAMENTE.");
+            backgroundIconImageView.setVisibility(View.VISIBLE);
+
+            return false;
+        }
+
         InputStream inputStream = getResources().openRawResource(R.raw.testdata);
         CSVReader reader = new CSVReader(inputStream);
         List<String[]> lines = reader.search(query);
@@ -71,6 +79,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         if (precioGasolinas.size() == 0) {
             emptyTextView.setVisibility(View.VISIBLE);
+            emptyTextView.setText("BUSQUEDA SIN RESULTADOS. INTENTAR BUSCAR NUEVAMENTE.");
             backgroundIconImageView.setVisibility(View.VISIBLE);
         } else {
             emptyTextView.setVisibility(View.GONE);
