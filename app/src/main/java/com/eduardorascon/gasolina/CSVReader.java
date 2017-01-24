@@ -22,10 +22,13 @@ public class CSVReader {
         try {
             searchigFor = searchigFor.toLowerCase().replace("á", "a").replace("é", "e").replace("í", "i").replace("ó", "o").replace("ú", "u");
             while ((csvLine = bufferedReader.readLine()) != null) {
-                csvLine = csvLine.toLowerCase().replace("á", "a").replace("é", "e").replace("í", "i").replace("ó", "o").replace("ú", "u");
 
-                if (csvLine.contains(searchigFor))
-                    resultList.add(csvLine.split(","));
+            	String [] row = csvLine.split(",");
+                String r3 = row[3].toLowerCase().replace("á", "a").replace("é", "e").replace("í", "i").replace("ó", "o").replace("ú", "u");
+                String r4 = row[4].toLowerCase().replace("á", "a").replace("é", "e").replace("í", "i").replace("ó", "o").replace("ú", "u");
+
+                if (r3.contains(searchigFor) || r4.contains(searchigFor))
+                    resultList.add(row);
             }
         } catch (IOException e) {
             throw new RuntimeException("Error al leer el archivo. " + e);
