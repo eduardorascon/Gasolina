@@ -20,7 +20,7 @@ public class CSVReader {
 
         String csvLine;
         try {
-            searchigFor = searchigFor.toLowerCase().replace("á", "a").replace("é", "e").replace("í", "i").replace("ó", "o").replace("ú", "u");
+            searchigFor = searchigFor.toLowerCase().replace("á", "a").replace("é", "e").replace("í", "i").replace("ó", "o").replace("ú", "u").trim();
             while ((csvLine = bufferedReader.readLine()) != null) {
 
             	String [] row = csvLine.split(",");
