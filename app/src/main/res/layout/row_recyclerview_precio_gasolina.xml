@@ -43,7 +43,8 @@
             android:focusable="false"
             android:focusableInTouchMode="false"
             android:layout_centerVertical="true"
-            android:background="@drawable/check" />
+            android:button="@drawable/check"
+            android:background="@null" />
 
         <LinearLayout
             android:id="@+id/ll1"
