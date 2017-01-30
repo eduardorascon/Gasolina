@@ -23,8 +23,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, 1);
     }
 
-    public void setup(Context context) {
-        SQLiteDatabase db = this.getWritableDatabase();
+    public void setup(SQLiteDatabase db) {
 
         CSVReader reader = new CSVReader(context);
         List<String[]> lines = reader.readAll();
@@ -68,22 +67,22 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onCreate(SQLiteDatabase sqLiteDatabase) {
+    public void onCreate(SQLiteDatabase db) {
 
     	if(getApplicationContext().getDatabasePath(DATABASE_NAME) == true){
     		return;
     	}
 
         String CREATE_MUNICIPIOS_TABLE = "create table municipios(_id integer primary key, estado text, municipio text, verde text, roja text, diesel text)";
-        sqLiteDatabase.execSQL(CREATE_MUNICIPIOS_TABLE);
+        db.execSQL(CREATE_MUNICIPIOS_TABLE);
         Log.i("CREATE", "BD CREADA");
 
-        setup(getApplicationContext());
+        setup(db);
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        sqLiteDatabase.execSQL("drop table if exists municipios");
-        onCreate(sqLiteDatabase);
+    public void onUpgrade(SQLiteDatabase db, int i, int i1) {
+        db.execSQL("drop table if exists municipios");
+        onCreate(db);
     }
 }
