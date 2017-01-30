@@ -17,19 +17,16 @@ import java.util.List;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
 
-    private final static String DATABASE_NAME = "p1";
-    Context mContext;
+    private final static String DATABASE_NAME = "db1.db";
 
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, 1);
-        mContext = context;
-        setup();
     }
 
-    public void setup() {
+    public void setup(Context context) {
         SQLiteDatabase db = this.getWritableDatabase();
 
-        CSVReader reader = new CSVReader(mContext);
+        CSVReader reader = new CSVReader(context);
         List<String[]> lines = reader.readAll();
         int indice = 0;
         for (String[] s : lines) {
@@ -72,9 +69,16 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String CREATE_MUNICIPIOS_TABLE = "create table municipios(id integer primary key, estado text, municipio text, verde text, roja text, diesel text)";
+
+    	if(getApplicationContext().getDatabasePath(DATABASE_NAME) == true){
+    		return;
+    	}
+
+        String CREATE_MUNICIPIOS_TABLE = "create table municipios(_id integer primary key, estado text, municipio text, verde text, roja text, diesel text)";
         sqLiteDatabase.execSQL(CREATE_MUNICIPIOS_TABLE);
         Log.i("CREATE", "BD CREADA");
+
+        setup(getApplicationContext());
     }
 
     @Override
