@@ -59,8 +59,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     @Override
     public boolean onQueryTextSubmit(String query) {
         municipioList.clear();
-        DatabaseHandler databaseHandler = new DatabaseHandler(this);
-        municipioList = databaseHandler.getAllMunicipios();
+
+        DatabaseHandler db = DatabaseHandler.getInstance(this);
+        municipioList = db.getAllMunicipios();
 
         adapter.notifyDataSetChanged();
 

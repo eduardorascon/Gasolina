@@ -17,12 +17,21 @@ import java.util.List;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
 
+    private static DatabaseHandler sInstance;
     private final static String DATABASE_NAME = "db1.db";
     private Context mContext;
 
-    public DatabaseHandler(Context context) {
+    private DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, 1);
         mContext = context;
+    }
+
+    public static synchronized DatabaseHandler getInstance(Context context){
+        if (sInstance == null){
+            sInstance = new DatabaseHandler(context.getApplicationContext());
+        }
+
+        return sInstance;
     }
 
     public void setup(SQLiteDatabase db) {
