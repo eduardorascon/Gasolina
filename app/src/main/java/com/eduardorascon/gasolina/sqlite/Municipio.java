@@ -2,16 +2,28 @@ package com.eduardorascon.gasolina.sqlite;
 
 public class Municipio {
     private int id;
-    private String municipio, estado, region;
+    private String municipio, estado;
+    private boolean isFavorited = false;
+    private String verde, roja, diesel;
 
-    public Municipio(){
+    public Municipio() {
     }
 
-    public Municipio(int id, String municipio, String estado, String region) {
+    public Municipio(int id, String municipio, String estado, String verde, String roja, String diesel) {
         this.id = id;
         this.municipio = municipio;
         this.estado = estado;
-        this.region = region;
+        this.verde = verde;
+        this.roja = roja;
+        this.diesel = diesel;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getMunicipio() {
@@ -30,19 +42,35 @@ public class Municipio {
         this.estado = estado;
     }
 
-    public String getRegion() {
-        return region;
+    public boolean isFavorited() {
+        return isFavorited;
     }
 
-    public void setRegion(String region) {
-        this.region = region;
+    public void setFavorited(boolean favorited) {
+        isFavorited = favorited;
     }
 
-    public int getId() {
-        return id;
+    public String getVerde() {
+        return verde;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setVerde(String verde) {
+        this.verde = verde;
+    }
+
+    public String getRoja() {
+        return roja;
+    }
+
+    public void setRoja(String roja) {
+        this.roja = roja;
+    }
+
+    public String getDiesel() {
+        return diesel;
+    }
+
+    public void setDiesel(String diesel) {
+        this.diesel = diesel;
     }
 }

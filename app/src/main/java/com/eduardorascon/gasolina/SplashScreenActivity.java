@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
+import com.eduardorascon.gasolina.sqlite.DatabaseHandler;
+
 public class SplashScreenActivity extends AppCompatActivity {
 
     private static int SPLASH_SCREEN_TIME = 2000;
@@ -12,6 +14,9 @@ public class SplashScreenActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        DatabaseHandler databaseHandler = new DatabaseHandler(this);
+        //databaseHandler.setup();
 
         new Handler().postDelayed(new Runnable() {
 
