@@ -3,6 +3,7 @@ package com.eduardorascon.gasolina;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 
 import com.eduardorascon.gasolina.sqlite.DatabaseHandler;
@@ -15,8 +16,9 @@ public class SplashScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        DatabaseHandler db = new DatabaseHandler(this);
-        db.getWritableDatabase();
+        DatabaseHandler db = DatabaseHandler.getInstance(this);
+        //db.getWritableDatabase();
+
 
         new Handler().postDelayed(new Runnable() {
 

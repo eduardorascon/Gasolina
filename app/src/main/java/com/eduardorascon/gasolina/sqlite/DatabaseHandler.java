@@ -41,7 +41,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         int indice = 0;
         for (String[] s : lines) {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("id", indice++);
+            contentValues.put("_id", indice++);
             contentValues.put("estado", s[2]);
             contentValues.put("municipio", s[3]);
             contentValues.put("verde", s[4]);
@@ -79,9 +79,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        if (mContext.getApplicationContext().getDatabasePath(DATABASE_NAME).exists() == true) {
-            return;
-        }
+        //if (mContext.getApplicationContext().getDatabasePath(DATABASE_NAME).exists() == true) {
+        //    return;
+        //}
 
         String CREATE_MUNICIPIOS_TABLE = "create table municipios(_id integer primary key, estado text, municipio text, verde text, roja text, diesel text)";
         db.execSQL(CREATE_MUNICIPIOS_TABLE);
