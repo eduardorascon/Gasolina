@@ -58,13 +58,13 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     @Override
     public boolean onQueryTextSubmit(String query) {
-        //municipioList.clear();
+        municipioList.clear();
 
         DatabaseHandler db = DatabaseHandler.getInstance(this);
-        municipioList = db.getMunicipios(query);
+        municipioList.addAll(db.getMunicipios(query));
 
-        //adapter.notifyDataSetChanged();
-        recyclerView.setAdapter(new PrecioGasolinaAdapter(municipioList));
+        adapter.notifyDataSetChanged();
+        //recyclerView.setAdapter(new PrecioGasolinaAdapter(municipioList));
 
         if (municipioList.size() == 0) {
             emptyTextView.setVisibility(View.VISIBLE);
