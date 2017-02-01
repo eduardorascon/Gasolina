@@ -1,6 +1,5 @@
 package com.eduardorascon.gasolina.sqlite;
 
-import android.app.Application;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -9,9 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import com.eduardorascon.gasolina.CSVReader;
-import com.eduardorascon.gasolina.R;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 

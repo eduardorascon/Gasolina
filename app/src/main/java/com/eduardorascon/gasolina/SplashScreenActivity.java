@@ -3,7 +3,6 @@ package com.eduardorascon.gasolina;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 
 import com.eduardorascon.gasolina.sqlite.DatabaseHandler;
