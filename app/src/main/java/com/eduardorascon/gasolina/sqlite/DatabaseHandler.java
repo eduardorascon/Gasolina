@@ -32,9 +32,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     public void setup(SQLiteDatabase db) {
-
         CSVReader reader = new CSVReader(mContext);
         List<String[]> lines = reader.readAll();
+
         int indice = 0;
         for (String[] s : lines) {
             ContentValues contentValues = new ContentValues();
@@ -44,11 +44,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             contentValues.put("verde", s[4]);
             contentValues.put("roja", s[5]);
             contentValues.put("diesel", s[6]);
-            Log.i("INSERT", "" + indice);
+            contentValues.put("es_favorito", 0);
             db.insert("municipios", null, contentValues);
         }
-
-        //db.close();
     }
 
     public List<Municipio> getMunicipios(String stringToSearch) {
@@ -67,6 +65,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 mpio.setVerde(cursor.getString(3));
                 mpio.setRoja(cursor.getString(4));
                 mpio.setDiesel(cursor.getString(5));
+                mpio.setIsFavorito(cursor.getInt(6));
                 municipiosList.add(mpio);
     		} while (cursor.moveToNext());
     	}
@@ -90,6 +89,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 mpio.setVerde(cursor.getString(3));
                 mpio.setRoja(cursor.getString(4));
                 mpio.setDiesel(cursor.getString(5));
+                mpio.setIsFavorito(cursor.getInt(6));
                 municipiosList.add(mpio);
             } while (cursor.moveToNext());
         }
@@ -103,7 +103,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         //    return;
         //}
 
-        String CREATE_MUNICIPIOS_TABLE = "create table municipios(_id integer primary key, estado text, municipio text, verde text, roja text, diesel text)";
+        String CREATE_MUNICIPIOS_TABLE = "create table municipios(_id integer primary key, estado text, municipio text, verde text, roja text, diesel text, es_favorito integer)";
         db.execSQL(CREATE_MUNICIPIOS_TABLE);
         Log.i("CREATE", "BD CREADA");
 

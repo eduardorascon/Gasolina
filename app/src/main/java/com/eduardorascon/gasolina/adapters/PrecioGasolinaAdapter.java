@@ -56,6 +56,7 @@ public class PrecioGasolinaAdapter extends RecyclerView.Adapter<PrecioGasolinaAd
         holder.verde.setText(municipio.getVerde());
         holder.roja.setText(municipio.getRoja());
         holder.diesel.setText(municipio.getDiesel());
+        holder.toggleButton.setChecked(municipio.getIsFavorito());
     }
 
     @Override
