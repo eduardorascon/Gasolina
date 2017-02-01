@@ -51,6 +51,29 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         //db.close();
     }
 
+    public List<Municipio> getMunicipios(String stringToSearch) {
+    	List<Municipio> municipiosList = new ArrayList<>();
+    	String selectQuery  = "SELECT * FROM municipios WHERE estado like ?";
+
+    	SQLiteDatabase db = this.getReadableDatabase();
+    	Cursor cursor = db.rawQuery(selectQuery, new String[]{stringToSearch.trim()});
+
+    	if (cursor.moveToFirst()) {
+    		do {
+    			Municipio mpio = new Municipio();
+    			mpio.setId(cursor.getInt(0));
+                mpio.setEstado(cursor.getString(1));
+                mpio.setMunicipio(cursor.getString(2));
+                mpio.setVerde(cursor.getString(3));
+                mpio.setRoja(cursor.getString(4));
+                mpio.setDiesel(cursor.getString(5));
+                municipiosList.add(mpio);
+    		} while (cursor.moveToNext());
+    	}
+
+    	return municipiosList;
+    }
+
     public List<Municipio> getAllMunicipios() {
         List<Municipio> municipiosList = new ArrayList<>();
         String selectQuery = "SELECT * FROM municipios";

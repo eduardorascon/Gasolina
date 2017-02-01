@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         //municipioList.clear();
 
         DatabaseHandler db = DatabaseHandler.getInstance(this);
-        municipioList = db.getAllMunicipios();
+        municipioList = db.getMunicipios(query);
 
         //adapter.notifyDataSetChanged();
         recyclerView.setAdapter(new PrecioGasolinaAdapter(municipioList));
