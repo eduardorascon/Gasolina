@@ -26,8 +26,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         mContext = context;
     }
 
-    public static synchronized DatabaseHandler getInstance(Context context){
-        if (sInstance == null){
+    public static synchronized DatabaseHandler getInstance(Context context) {
+        if (sInstance == null) {
             sInstance = new DatabaseHandler(context.getApplicationContext());
         }
 
@@ -51,7 +51,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             db.insert("municipios", null, contentValues);
         }
 
-        db.close();
+        //db.close();
     }
 
     public List<Municipio> getAllMunicipios() {

@@ -17,8 +17,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         DatabaseHandler db = DatabaseHandler.getInstance(this);
-        //db.getWritableDatabase();
-
+        db.getWritableDatabase();
 
         new Handler().postDelayed(new Runnable() {
 
