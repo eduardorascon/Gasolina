@@ -44,11 +44,11 @@ public class Municipio {
     }
 
     public boolean getIsFavorito() {
-        return isFavorito == 1;
+        return this.esFavorito;
     }
 
     public void setIsFavorito(int isFavorito) {
-        this.isFavorito = isFavorito == 1;
+        this.esFavorito = isFavorito == 1;
     }
 
     public String getVerde() {
