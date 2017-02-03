@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import com.eduardorascon.gasolina.R;
+import com.eduardorascon.gasolina.sqlite.DatabaseHandler;
 import com.eduardorascon.gasolina.sqlite.Municipio;
 
 import java.util.List;
@@ -21,6 +22,7 @@ public class PrecioGasolinaAdapter extends RecyclerView.Adapter<PrecioGasolinaAd
     }
 
     public class PrecioViewHolder extends RecyclerView.ViewHolder {
+        long id;
         TextView estado, municipio, verde, roja, diesel;
         ToggleButton toggleButton;
 
@@ -36,6 +38,8 @@ public class PrecioGasolinaAdapter extends RecyclerView.Adapter<PrecioGasolinaAd
             toggleButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    DatabaseHandler db = DatabaseHandler.getInstance(view.getContext());
+                    db.setMunicipioFavorite(id, toggleButton.isChecked());
                     Log.i("CLICK", toggleButton.isChecked() ? "ON" : "OFF");
                 }
             });
@@ -51,6 +55,7 @@ public class PrecioGasolinaAdapter extends RecyclerView.Adapter<PrecioGasolinaAd
     @Override
     public void onBindViewHolder(PrecioViewHolder holder, int position) {
         Municipio municipio = listaDePrecios.get(position);
+        holder.id = municipio.getId();
         holder.estado.setText(municipio.getEstado());
         holder.municipio.setText(municipio.getMunicipio());
         holder.verde.setText(municipio.getVerde());

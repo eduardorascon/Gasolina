@@ -49,6 +49,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         }
     }
 
+    public void setMunicipioFavorite(long id, boolean checked) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String[] params = {checked ? "1" : "0", String.valueOf(id)};
+        db.rawQuery("update municipios set es_favorito = ? where _id = ?", params);
+        Log.i("CLICK", "update correcto");
+    }
+
     public List<Municipio> getMunicipios(String stringToSearch) {
         List<Municipio> municipiosList = new ArrayList<>();
         String selectQuery = "SELECT * FROM municipios WHERE estado like ? or municipio like ? order by estado, municipio";
