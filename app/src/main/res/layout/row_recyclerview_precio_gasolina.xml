@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginRight="5dp"
@@ -9,23 +10,46 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textView3"
+        <LinearLayout
+            android:id="@+id/llTitulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="false"
-            android:gravity="left"
-            android:paddingLeft="16dp"
-            android:paddingTop="10dp"
-            android:text="TextView"
-            android:textAllCaps="true"
-            android:textSize="26sp" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="16dp"
+                android:paddingTop="10dp"
+                android:text="TextView"
+                android:textAllCaps="true"
+                android:textSize="26sp" />
+
+            <ToggleButton
+                android:id="@+id/toggle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:button="@drawable/selector_favorite"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:gravity="center"
+                android:paddingRight="16dp"
+                android:paddingTop="10dp"
+                android:text=""
+                android:textOff=""
+                android:textOn="" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/textView3"
+            android:layout_below="@id/llTitulo"
             android:layout_centerHorizontal="false"
             android:gravity="left"
             android:paddingLeft="16dp"
