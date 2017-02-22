@@ -19,8 +19,9 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".ViewPagerActivity"></activity>
+            android:screenOrientation="portrait" />
+        <activity android:name=".ViewPagerActivity" />
+        <activity android:name=".FavoritesActivity"></activity>
     </application>
 
 </manifest>

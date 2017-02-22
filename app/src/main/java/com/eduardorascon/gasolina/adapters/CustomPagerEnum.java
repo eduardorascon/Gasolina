@@ -5,7 +5,7 @@ import com.eduardorascon.gasolina.R;
 public enum CustomPagerEnum {
 
     RED(1, R.layout.activity_main),
-    BLUE(2, R.layout.activity_main);
+    BLUE(2, R.layout.activity_favorites);
 
     private int mTitleResId, mLayoutResId;
 
