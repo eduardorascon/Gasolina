@@ -7,16 +7,17 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public class CustomPagerAdapter extends PagerAdapter {
-    private Context mContext;
+    private Context context;
 
+    //TODO: Ceck if we can override getItem()
     public CustomPagerAdapter(Context context) {
-        mContext = context;
+        this.context = context;
     }
 
     @Override
     public Object instantiateItem(ViewGroup collection, int position) {
         CustomPagerEnum pagerEnum = CustomPagerEnum.values()[position];
-        LayoutInflater inflater = LayoutInflater.from(mContext);
+        LayoutInflater inflater = LayoutInflater.from(this.context);
         ViewGroup layout = (ViewGroup) inflater.inflate(pagerEnum.getLayoutResId(), collection, false);
         collection.addView(layout);
 
@@ -41,6 +42,6 @@ public class CustomPagerAdapter extends PagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
         CustomPagerEnum pagerEnum = CustomPagerEnum.values()[position];
-        return mContext.getString(pagerEnum.getTitleResId());
+        return this.context.getString(pagerEnum.getTitleResId());
     }
 }
