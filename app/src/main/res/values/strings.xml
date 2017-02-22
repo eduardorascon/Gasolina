@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Gasolina - Precios Máximos Vigentes de Combustibles en México</string>
+    <string name="db_drop_table_municipios">drop table if exists municipios</string>
+
+    <string name="db_create_table_municipios">create table municipios(_id integer primary key, estado text, municipio text, verde text, roja text, diesel text, es_favorito integer)</string>
+    <string name="db_search_municipios_by_estado_or_municipio">SELECT * FROM municipios WHERE estado like ? or municipio like ? order by estado, municipio</string>
+    <string name="db_update_municipios_set_es_favorito">update municipios set es_favorito = ? where _id = ?</string>
 </resources>

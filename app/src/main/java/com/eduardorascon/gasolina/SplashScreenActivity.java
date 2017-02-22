@@ -22,12 +22,9 @@ public class SplashScreenActivity extends AppCompatActivity {
 
             @Override
             public void run() {
-                // This method will be executed once the timer is over
-                // Start your app main activity
-                Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
+                Intent intent = new Intent(SplashScreenActivity.this, ViewPagerActivity.class);
                 startActivity(intent);
 
-                // close this activity
                 finish();
             }
         }, SPLASH_SCREEN_TIME);
