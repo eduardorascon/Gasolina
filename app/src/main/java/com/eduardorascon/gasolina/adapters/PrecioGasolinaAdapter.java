@@ -40,7 +40,6 @@ public class PrecioGasolinaAdapter extends RecyclerView.Adapter<PrecioGasolinaAd
                 public void onClick(View view) {
                     DatabaseHandler db = DatabaseHandler.getInstance(view.getContext());
                     db.setMunicipioFavorite(id, toggleButton.isChecked());
-                    Log.i("CLICK", toggleButton.isChecked() ? "ON" : "OFF");
                 }
             });
         }

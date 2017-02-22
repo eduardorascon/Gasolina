@@ -80,30 +80,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return municipiosList;
     }
 
-    public List<Municipio> getAllMunicipios() {
-        List<Municipio> municipiosList = new ArrayList<>();
-        String selectQuery = "SELECT * FROM municipios";
-
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery(selectQuery, null);
-
-        if (cursor.moveToFirst()) {
-            do {
-                Municipio mpio = new Municipio();
-                mpio.setId(cursor.getInt(0));
-                mpio.setEstado(cursor.getString(1));
-                mpio.setMunicipio(cursor.getString(2));
-                mpio.setVerde(cursor.getString(3));
-                mpio.setRoja(cursor.getString(4));
-                mpio.setDiesel(cursor.getString(5));
-                mpio.setIsFavorito(cursor.getInt(6));
-                municipiosList.add(mpio);
-            } while (cursor.moveToNext());
-        }
-
-        return municipiosList;
-    }
-
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(context.getString(R.string.db_create_table_municipios));
