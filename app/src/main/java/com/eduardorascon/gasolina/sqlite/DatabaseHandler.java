@@ -2,11 +2,9 @@ package com.eduardorascon.gasolina.sqlite;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import com.eduardorascon.gasolina.CSVReader;
 import com.eduardorascon.gasolina.R;
@@ -54,13 +52,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void setMunicipioFavorite(long id, boolean checked) {
         SQLiteDatabase db = this.getWritableDatabase();
         String[] params = {checked ? "1" : "0", String.valueOf(id)};
-        db.rawQuery("update municipios set es_favorito = ? where _id = ?", params);
-        Log.i("CLICK", "update correcto");
+        db.rawQuery(context.getString(R.string.db_update_municipios_set_es_favorito), params);
     }
 
     public List<Municipio> getMunicipios(String stringToSearch) {
         List<Municipio> municipiosList = new ArrayList<>();
-        String selectQuery = "SELECT * FROM municipios WHERE estado like ? or municipio like ? order by estado, municipio";
+        String selectQuery = context.getString(R.string.db_search_municipios_by_estado_or_municipio);
 
         SQLiteDatabase db = this.getReadableDatabase();
         String[] params = {"%" + stringToSearch.trim() + "%", "%" + stringToSearch.trim() + "%"};
@@ -109,10 +106,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_MUNICIPIOS_TABLE = "create table municipios(_id integer primary key, estado text, municipio text, verde text, roja text, diesel text, es_favorito integer)";
-        db.execSQL(CREATE_MUNICIPIOS_TABLE);
-        Log.i("CREATE", "BD CREADA");
-
+        db.execSQL(context.getString(R.string.db_create_table_municipios));
         setup(db);
     }
 
