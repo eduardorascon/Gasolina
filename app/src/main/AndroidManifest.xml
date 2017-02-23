@@ -21,7 +21,11 @@
             android:name=".MainActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".ViewPagerActivity" />
-        <activity android:name=".FavoritesActivity"></activity>
+        <activity android:name=".FavoritesActivity" />
+        <activity
+            android:name=".TabView"
+            android:label="@string/title_activity_tab_view"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

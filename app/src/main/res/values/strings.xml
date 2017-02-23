@@ -5,4 +5,10 @@
     <string name="db_create_table_municipios">create table municipios(_id integer primary key, estado text, municipio text, verde text, roja text, diesel text, es_favorito integer)</string>
     <string name="db_search_municipios_by_estado_or_municipio">SELECT * FROM municipios WHERE estado like ? or municipio like ? order by estado, municipio</string>
     <string name="db_update_municipios_set_es_favorito">update municipios set es_favorito = ? where _id = ?</string>
+    <string name="title_activity_tab_view">TabView</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
