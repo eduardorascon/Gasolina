@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         if (municipioList.size() == 0) {
             emptyTextView.setVisibility(View.VISIBLE);
-            emptyTextView.setText("BUSQUEDA SIN RESULTADOS. INTENTAR BUSCAR NUEVAMENTE.");
+            emptyTextView.setText(R.string.no_results_message);
             emptyTextView.setTextColor(ContextCompat.getColor(this, R.color.red));
             backgroundIconImageView.setVisibility(View.VISIBLE);
         } else {

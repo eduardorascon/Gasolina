@@ -17,8 +17,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.eduardorascon.gasolina.adapters.PrecioGasolinaAdapter;
-
 public class AllFragment extends Fragment implements SearchView.OnQueryTextListener {
     private OnFragmentInteractionListener mListener;
 
