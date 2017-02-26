@@ -30,8 +30,8 @@ public class TabView extends AppCompatActivity implements FavoritesFragment.OnFr
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         adapter = new SectionsPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new FavoritesFragment(), "FAVORITOS");
-        adapter.addFragment(new AllFragment(), "BUSQUEDA");
+        adapter.addFragment(new FavoritesFragment(), getString(R.string.tab_name_favorites));
+        adapter.addFragment(new AllFragment(), getString(R.string.tab_name_search));
 
         // Set up the ViewPager with the sections adapter.
         viewPager = (ViewPager) findViewById(R.id.container);
