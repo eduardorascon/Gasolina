@@ -1,5 +1,6 @@
 package com.eduardorascon.gasolina;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.MenuItemCompat;
@@ -15,15 +16,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.eduardorascon.gasolina.adapters.PrecioGasolinaAdapter;
-import com.eduardorascon.gasolina.sqlite.DatabaseHandler;
-import com.eduardorascon.gasolina.sqlite.Municipio;
+import com.eduardorascon.gasolina.pojos.PrecioGasolina;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
-    private List<Municipio> municipioList = new ArrayList<>();
+    private List<PrecioGasolina> precioGasolinas = new ArrayList<>();
     private RecyclerView recyclerView;
     private PrecioGasolinaAdapter adapter;
     private TextView emptyTextView;
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         backgroundIconImageView = (ImageView) findViewById(R.id.background_icon_image_view);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        adapter = new PrecioGasolinaAdapter(municipioList);
+        adapter = new PrecioGasolinaAdapter(precioGasolinas);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -58,18 +59,22 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     @Override
     public boolean onQueryTextSubmit(String query) {
-        municipioList.clear();
 
-        DatabaseHandler db = DatabaseHandler.getInstance(this);
-        municipioList.addAll(db.getMunicipios(query));
+        InputStream inputStream = getResources().openRawResource(R.raw.testdata);
+        CSVReader reader = new CSVReader(inputStream);
+        List<String[]> lines = reader.search(query);
+
+        precioGasolinas.clear();
+        for (String[] s : lines) {
+            precioGasolinas.add(new PrecioGasolina(s[0], s[1], s[2], s[3], s[4], s[5], s[6]));
+        }
 
         adapter.notifyDataSetChanged();
-        //recyclerView.setAdapter(new PrecioGasolinaAdapter(municipioList));
 
-        if (municipioList.size() == 0) {
+        if (precioGasolinas.size() == 0) {
             emptyTextView.setVisibility(View.VISIBLE);
-            emptyTextView.setText(R.string.no_results_message);
-            emptyTextView.setTextColor(ContextCompat.getColor(this, R.color.red));
+            emptyTextView.setText("BUSQUEDA SIN RESULTADOS. INTENTAR BUSCAR NUEVAMENTE.");
+            emptyTextView.setTextColor(ContextCompat.getColor(this,R.color.red ));
             backgroundIconImageView.setVisibility(View.VISIBLE);
         } else {
             emptyTextView.setVisibility(View.GONE);

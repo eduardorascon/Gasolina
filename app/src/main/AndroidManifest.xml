@@ -9,23 +9,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SplashScreenActivity"
+            android:name="com.eduardorascon.gasolina.SplashScreenActivity"
             android:theme="@style/SplashScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name=".ViewPagerActivity" />
-        <activity android:name=".FavoritesActivity" />
-        <activity
-            android:name=".TabView"
-            android:label="@string/title_activity_tab_view"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:name="com.eduardorascon.gasolina.MainActivity"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>
