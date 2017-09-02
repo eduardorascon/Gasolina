@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "740634115656",
+    "firebase_url": "https://gasolinamx-10b8b.firebaseio.com",
+    "project_id": "gasolinamx-10b8b",
+    "storage_bucket": "gasolinamx-10b8b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:740634115656:android:b551d4b6839cfc52",
+        "android_client_info": {
+          "package_name": "com.eduardorascon.gasolina"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "740634115656-ofnnfjafr4dg37h6e13fkpnbpjjaiimt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.eduardorascon.gasolina",
+            "certificate_hash": "e51a8193036a0a514a966512032f0820db5fd0e3"
+          }
+        },
+        {
+          "client_id": "740634115656-vvm25dbor6rp5eqpaehquo2b810slqog.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9wTYqtWwkdLU2Oaw_svJfAzTXvgyHNkY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "740634115656-vvm25dbor6rp5eqpaehquo2b810slqog.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
