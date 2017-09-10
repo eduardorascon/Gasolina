@@ -13,13 +13,15 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity implements MainActivityView {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        MainActivityPresenter presenter = new MainActivityPresenter();
+        MainActivityPresenter presenter = new MainActivityPresenter(this, null);
 
         final ListView listView = (ListView) findViewById(R.id.listView);
 
@@ -58,5 +60,10 @@ public class MainActivity extends AppCompatActivity {
                 Log.w("TAG:", "Failed to read value.", databaseError.toException());
             }
         });
+    }
+
+    @Override
+    public void displayStates(List<String> stateList) {
+
     }
 }

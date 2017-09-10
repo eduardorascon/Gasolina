@@ -1,10 +1,21 @@
 package com.eduardorascon.gasolina;
 
-public class MainActivityPresenter {
-    private final MainActivityView view;
+import com.eduardorascon.gasolina.repositories.StatesRepository;
 
-    public MainActivityPresenter(MainActivityView view) {
+import java.util.List;
+
+public class MainActivityPresenter {
+    private MainActivityView view;
+    private StatesRepository statesRepository;
+
+    public MainActivityPresenter(MainActivityView view, StatesRepository statesRepository) {
 
         this.view = view;
+        this.statesRepository = statesRepository;
+    }
+
+    public void loadStates() {
+        List<String> stateList = statesRepository.getStateList();
+        view.displayStates(stateList);
     }
 }
