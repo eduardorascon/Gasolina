@@ -1,7 +1,10 @@
 package com.eduardorascon.gasolina;
 
 public class MainActivityPresenter {
-    public MainActivityPresenter() {
+    private final MainActivityView view;
 
+    public MainActivityPresenter(MainActivityView view) {
+
+        this.view = view;
     }
 }
