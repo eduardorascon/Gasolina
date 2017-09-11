@@ -1,5 +1,6 @@
 package com.eduardorascon.gasolina;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -35,5 +36,11 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
                 android.R.layout.simple_list_item_1, android.R.id.text1);
         adapter.addAll(stateList);
         listView.setAdapter(adapter);
+    }
+
+    @Override
+    public void showCitiesActivity() {
+        Intent intent = new Intent(this, CitiesActivity.class);
+        startActivity(intent);
     }
 }

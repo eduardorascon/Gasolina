@@ -37,6 +37,11 @@ public class MainActivityPresenterTest {
         public void displayStates(List<String> stateList) {
             if (stateList.size() > 0) passed = true;
         }
+
+        @Override
+        public void showCitiesActivity() {
+
+        }
     }
 
     private class MockStateRepository implements StatesRepository {
