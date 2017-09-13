@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
         setContentView(R.layout.activity_main);
 
         presenter = new MainActivityPresenter(this, null);
-        rv = (RecyclerView) findViewById(R.id.states_recycler_view);
+        rv = findViewById(R.id.states_recycler_view);
         rv.setHasFixedSize(true);
         llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
@@ -53,8 +53,8 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
 
         @Override
         public StatesAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            TextView v = (TextView) LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.recyclerview_item_row, parent, false);
+            LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+            View v = inflater.inflate(R.layout.recyclerview_item_row, parent, false);
             ViewHolder vh = new ViewHolder(v);
             return vh;
         }
@@ -72,9 +72,9 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
         public class ViewHolder extends RecyclerView.ViewHolder {
             public TextView mTextView;
 
-            public ViewHolder(TextView v) {
+            public ViewHolder(View v) {
                 super(v);
-                mTextView = v;
+                mTextView = v.findViewById(R.id.state_name);
             }
         }
     }
