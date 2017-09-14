@@ -21,7 +21,6 @@ public class MainActivityPresenter {
     }
 
     public void loadStates() {
-        //List<String> stateList = statesRepository.getStateList();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("estados");
 

@@ -5,11 +5,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+
+import com.eduardorascon.gasolina.adapters.RecyclerViewStatesAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +16,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
     private MainActivityPresenter presenter;
     private RecyclerView rv;
     private LinearLayoutManager llm;
-    private StatesAdapter adapter;
+    private RecyclerViewStatesAdapter adapter;
 
     protected void onStart() {
         super.onStart();
@@ -40,42 +37,8 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
 
     @Override
     public void displayStates(List<String> stateList) {
-        adapter = new StatesAdapter((ArrayList<String>) stateList);
+        adapter = new RecyclerViewStatesAdapter((ArrayList<String>) stateList);
         rv.setAdapter(adapter);
     }
 
-    public class StatesAdapter extends RecyclerView.Adapter<StatesAdapter.ViewHolder> {
-        private ArrayList<String> statesList;
-
-        public StatesAdapter(ArrayList<String> statesList) {
-            this.statesList = statesList;
-        }
-
-        @Override
-        public StatesAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-            View v = inflater.inflate(R.layout.recyclerview_item_row, parent, false);
-            ViewHolder vh = new ViewHolder(v);
-            return vh;
-        }
-
-        @Override
-        public void onBindViewHolder(StatesAdapter.ViewHolder holder, int position) {
-            holder.mTextView.setText(statesList.get(position));
-        }
-
-        @Override
-        public int getItemCount() {
-            return statesList.size();
-        }
-
-        public class ViewHolder extends RecyclerView.ViewHolder {
-            public TextView mTextView;
-
-            public ViewHolder(View v) {
-                super(v);
-                mTextView = v.findViewById(R.id.state_name);
-            }
-        }
-    }
 }
