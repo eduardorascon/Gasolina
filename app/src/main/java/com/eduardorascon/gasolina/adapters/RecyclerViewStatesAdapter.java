@@ -36,7 +36,7 @@ public class RecyclerViewStatesAdapter extends RecyclerView.Adapter<RecyclerView
         return statesList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private static final String TAG = "ViewHolder";
         public TextView mTextView;
 
