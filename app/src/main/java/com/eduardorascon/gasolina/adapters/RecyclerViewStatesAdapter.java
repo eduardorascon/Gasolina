@@ -1,5 +1,6 @@
 package com.eduardorascon.gasolina.adapters;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -7,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.eduardorascon.gasolina.CitiesActivity;
 import com.eduardorascon.gasolina.R;
 
 import java.util.ArrayList;
@@ -46,9 +48,12 @@ public class RecyclerViewStatesAdapter extends RecyclerView.Adapter<RecyclerView
             mTextView = v.findViewById(R.id.state_name);
         }
 
+        //Maybe this can be repleaced with this answer: https://stackoverflow.com/a/33031936
         @Override
         public void onClick(View view) {
             Log.d(TAG, "Position: " + this.getAdapterPosition());
+            Intent intent = new Intent(view.getContext(), CitiesActivity.class);
+            view.getContext().startActivity(intent);
         }
     }
 }
