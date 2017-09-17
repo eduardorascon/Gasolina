@@ -6,6 +6,17 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <android.support.v7.widget.AppCompatImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+
+
+        android:adjustViewBounds="true"
+        android:cropToPadding="false"
+        android:maxHeight="160dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/aguascalientes" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/states_recycler_view"
         android:layout_width="match_parent"
