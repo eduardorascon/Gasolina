@@ -8,18 +8,20 @@
     <!--https://stackoverflow.com/a/22299305/6278869-->
     <TextView
         android:id="@+id/state_name"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center|start"
+        android:background="#c0c0c0"
         android:ellipsize="end"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:shadowColor="#000"
         android:shadowRadius="2"
+        android:textAlignment="center"
         android:textAllCaps="true"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#FFF"
-        android:textSize="16sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         tools:text="NOMBRE DE ESTADO" />
 
