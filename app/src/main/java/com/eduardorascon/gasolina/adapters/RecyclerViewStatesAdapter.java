@@ -40,6 +40,9 @@ public class RecyclerViewStatesAdapter extends RecyclerView.Adapter<RecyclerView
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private static final String TAG = "ViewHolder";
+        private static final long CLICK_TIME_INTERVAL = 300;
+        private long mLastClickTime = System.currentTimeMillis();
+
         public TextView mTextView;
 
         public ViewHolder(View v) {
@@ -51,9 +54,22 @@ public class RecyclerViewStatesAdapter extends RecyclerView.Adapter<RecyclerView
         //Maybe this can be repleaced with this answer: https://stackoverflow.com/a/33031936
         @Override
         public void onClick(View view) {
+
+            if (isClickValid() == false)
+                return;
+
             Log.d(TAG, "Position: " + this.getAdapterPosition());
             Intent intent = new Intent(view.getContext(), CitiesActivity.class);
             view.getContext().startActivity(intent);
+        }
+
+        private boolean isClickValid() {
+            long now = System.currentTimeMillis();
+            if (now - mLastClickTime < CLICK_TIME_INTERVAL)
+                return false;
+
+            mLastClickTime = now;
+            return true;
         }
     }
 }
