@@ -60,6 +60,7 @@ public class RecyclerViewStatesAdapter extends RecyclerView.Adapter<RecyclerView
 
             Log.d(TAG, "Position: " + this.getAdapterPosition());
             Intent intent = new Intent(view.getContext(), CitiesActivity.class);
+            intent.putExtra("ESTADO", mTextView.getText());
             view.getContext().startActivity(intent);
         }
 
