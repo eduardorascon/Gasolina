@@ -1,7 +1,6 @@
 package com.eduardorascon.gasolina;
 
 public class StateInfo {
-
     private String mStateName;
 
     StateInfo(String stateName) {

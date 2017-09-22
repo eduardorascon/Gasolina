@@ -16,9 +16,10 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
 
     private MainActivityPresenter presenter;
     private RecyclerView rv;
-    private LinearLayoutManager llm;
+    private LinearLayoutManager lm;
     private RecyclerViewStatesAdapter adapter;
 
+    @Override
     protected void onStart() {
         super.onStart();
         presenter.loadStates();
@@ -32,10 +33,10 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
         presenter = new MainActivityPresenter(this, null);
         rv = findViewById(R.id.states_recycler_view);
         rv.setHasFixedSize(true);
-        llm = new LinearLayoutManager(this);
-        rv.setLayoutManager(llm);
+        lm = new LinearLayoutManager(this);
+        rv.setLayoutManager(lm);
         //divider
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rv.getContext(), llm.getOrientation());
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rv.getContext(), lm.getOrientation());
         rv.addItemDecoration(dividerItemDecoration);
     }
 
@@ -44,5 +45,4 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
         adapter = new RecyclerViewStatesAdapter((ArrayList<StateInfo>) stateList);
         rv.setAdapter(adapter);
     }
-
 }

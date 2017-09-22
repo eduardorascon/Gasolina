@@ -1,6 +1,6 @@
 package com.eduardorascon.gasolina;
 
-import com.eduardorascon.gasolina.repositories.StatesRepository;
+import com.eduardorascon.gasolina.repositories.CitiesRepository;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -10,31 +10,31 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivityPresenter {
+public class CitiesActivityPresenter {
 
-    private MainActivityView view;
-    private StatesRepository repository;
-    private List<StateInfo> stateList = new ArrayList();
+    private CitiesActivity view;
+    private CitiesRepository repository;
+    private List<CityInfo> cityList = new ArrayList<>();
 
-    public MainActivityPresenter(MainActivityView view, StatesRepository statesRepository) {
+    public CitiesActivityPresenter(CitiesActivity view, CitiesRepository citiesRepository) {
         this.view = view;
-        this.repository = statesRepository;
+        this.repository = citiesRepository;
     }
 
-    public void loadStates() {
+    public void loadCities(String stateName) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("estados");
+        DatabaseReference myRef = database.getReference("precios/" + stateName);
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                stateList.clear();
+                cityList.clear();
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     String value = postSnapshot.getKey();
-                    stateList.add(new StateInfo(value));
+                    cityList.add(new CityInfo(value));
                 }
 
-                view.displayStates(stateList);
+                view.displayCities(cityList);
             }
 
             @Override

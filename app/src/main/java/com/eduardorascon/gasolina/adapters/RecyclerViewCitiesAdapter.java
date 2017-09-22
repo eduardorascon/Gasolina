@@ -9,34 +9,34 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.eduardorascon.gasolina.CitiesActivity;
+import com.eduardorascon.gasolina.CityInfo;
 import com.eduardorascon.gasolina.R;
-import com.eduardorascon.gasolina.StateInfo;
 
 import java.util.ArrayList;
 
-public class RecyclerViewStatesAdapter extends RecyclerView.Adapter<RecyclerViewStatesAdapter.ViewHolder> {
-    private ArrayList<StateInfo> statesList;
+public class RecyclerViewCitiesAdapter extends RecyclerView.Adapter<RecyclerViewCitiesAdapter.ViewHolder> {
+    private ArrayList<CityInfo> cityList;
 
-    public RecyclerViewStatesAdapter(ArrayList<StateInfo> statesList) {
-        this.statesList = statesList;
+    public RecyclerViewCitiesAdapter(ArrayList<CityInfo> cityList) {
+        this.cityList = cityList;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View v = inflater.inflate(R.layout.recyclerview_item_row, parent, false);
-        ViewHolder vh = new ViewHolder(v);
+        RecyclerViewCitiesAdapter.ViewHolder vh = new RecyclerViewCitiesAdapter.ViewHolder(v);
         return vh;
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.mTextView.setText(statesList.get(position).getStateName());
+        holder.mTextView.setText(cityList.get(position).getCityName());
     }
 
     @Override
     public int getItemCount() {
-        return statesList.size();
+        return cityList.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -51,7 +51,6 @@ public class RecyclerViewStatesAdapter extends RecyclerView.Adapter<RecyclerView
             mTextView = v.findViewById(R.id.state_name);
         }
 
-        //Maybe this can be repleaced with this answer: https://stackoverflow.com/a/33031936
         @Override
         public void onClick(View view) {
 
@@ -60,9 +59,9 @@ public class RecyclerViewStatesAdapter extends RecyclerView.Adapter<RecyclerView
                 return;
 
             Log.d(TAG, "Position: " + this.getAdapterPosition());
-            Intent intent = new Intent(view.getContext(), CitiesActivity.class);
-            intent.putExtra("ESTADO", mTextView.getText());
-            view.getContext().startActivity(intent);
+            //Intent intent = new Intent(view.getContext(), CitiesActivity.class);
+            //intent.putExtra("CIUDAD", mTextView.getText());
+            //view.getContext().startActivity(intent);
         }
 
         private boolean isClickValid() {

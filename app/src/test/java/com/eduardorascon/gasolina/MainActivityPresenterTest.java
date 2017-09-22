@@ -34,7 +34,7 @@ public class MainActivityPresenterTest {
         boolean passed = false;
 
         @Override
-        public void displayStates(List<String> stateList) {
+        public void displayStates(List<StateInfo> stateList) {
             if (stateList.size() > 0) passed = true;
         }
     }
