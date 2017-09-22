@@ -56,7 +56,8 @@ public class RecyclerViewStatesAdapter extends RecyclerView.Adapter<RecyclerView
         @Override
         public void onClick(View view) {
 
-            if (isClickValid() == false)
+            boolean validClick = isClickValid();
+            if (validClick == false)
                 return;
 
             Log.d(TAG, "Position: " + this.getAdapterPosition());
