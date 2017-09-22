@@ -3,6 +3,7 @@ package com.eduardorascon.gasolina;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -33,6 +34,9 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
         rv.setHasFixedSize(true);
         llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
+        //divider
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rv.getContext(), llm.getOrientation());
+        rv.addItemDecoration(dividerItemDecoration);
     }
 
     @Override
