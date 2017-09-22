@@ -13,7 +13,7 @@ import java.util.List;
 public class MainActivityPresenter {
     private MainActivityView view;
     private StatesRepository statesRepository;
-    private List<String> stateList = new ArrayList();
+    private List<StateInfo> stateList = new ArrayList();
 
     public MainActivityPresenter(MainActivityView view, StatesRepository statesRepository) {
         this.view = view;
@@ -30,7 +30,7 @@ public class MainActivityPresenter {
                 stateList.clear();
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     String value = postSnapshot.getKey();
-                    stateList.add(value);
+                    stateList.add(new StateInfo(value));
                 }
 
                 view.displayStates(stateList);

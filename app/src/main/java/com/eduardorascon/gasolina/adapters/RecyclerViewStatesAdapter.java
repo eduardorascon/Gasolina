@@ -10,13 +10,14 @@ import android.widget.TextView;
 
 import com.eduardorascon.gasolina.CitiesActivity;
 import com.eduardorascon.gasolina.R;
+import com.eduardorascon.gasolina.StateInfo;
 
 import java.util.ArrayList;
 
 public class RecyclerViewStatesAdapter extends RecyclerView.Adapter<RecyclerViewStatesAdapter.ViewHolder> {
-    private ArrayList<String> statesList;
+    private ArrayList<StateInfo> statesList;
 
-    public RecyclerViewStatesAdapter(ArrayList<String> statesList) {
+    public RecyclerViewStatesAdapter(ArrayList<StateInfo> statesList) {
         this.statesList = statesList;
     }
 
@@ -30,7 +31,7 @@ public class RecyclerViewStatesAdapter extends RecyclerView.Adapter<RecyclerView
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.mTextView.setText(statesList.get(position));
+        holder.mTextView.setText(statesList.get(position).getStateName());
     }
 
     @Override

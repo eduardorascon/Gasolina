@@ -36,8 +36,8 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
     }
 
     @Override
-    public void displayStates(List<String> stateList) {
-        adapter = new RecyclerViewStatesAdapter((ArrayList<String>) stateList);
+    public void displayStates(List<StateInfo> stateList) {
+        adapter = new RecyclerViewStatesAdapter((ArrayList<StateInfo>) stateList);
         rv.setAdapter(adapter);
     }
 
