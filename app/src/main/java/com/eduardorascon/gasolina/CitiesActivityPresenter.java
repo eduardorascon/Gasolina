@@ -1,6 +1,5 @@
 package com.eduardorascon.gasolina;
 
-import com.eduardorascon.gasolina.repositories.CitiesRepository;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -13,12 +12,10 @@ import java.util.List;
 public class CitiesActivityPresenter {
 
     private CitiesActivity view;
-    private CitiesRepository repository;
     private List<CityInfo> cityList = new ArrayList<>();
 
-    public CitiesActivityPresenter(CitiesActivity view, CitiesRepository citiesRepository) {
+    public CitiesActivityPresenter(CitiesActivity view) {
         this.view = view;
-        this.repository = citiesRepository;
     }
 
     public void loadCities(String stateName) {

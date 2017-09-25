@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        presenter = new MainActivityPresenter(this, null);
+        presenter = new MainActivityPresenter(this);
         rv = findViewById(R.id.states_recycler_view);
         rv.setHasFixedSize(true);
         lm = new LinearLayoutManager(this);

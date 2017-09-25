@@ -1,15 +1,10 @@
 package com.eduardorascon.gasolina;
 
-import com.eduardorascon.gasolina.repositories.StatesRepository;
-
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 public class MainActivityPresenterTest {
 
@@ -22,9 +17,8 @@ public class MainActivityPresenterTest {
     public void ShouldPassStatesListToView() {
         //given
         MainActivityView view = new MockView();
-        StatesRepository statesRepository = new MockStateRepository();
         //when
-        MainActivityPresenter presenter = new MainActivityPresenter(view, statesRepository);
+        MainActivityPresenter presenter = new MainActivityPresenter(view);
         presenter.loadStates();
         //then
         Assert.assertEquals(true, ((MockView) view).passed);
@@ -36,14 +30,6 @@ public class MainActivityPresenterTest {
         @Override
         public void displayStates(List<StateInfo> stateList) {
             if (stateList.size() > 0) passed = true;
-        }
-    }
-
-    private class MockStateRepository implements StatesRepository {
-
-        @Override
-        public List<String> getStateList() {
-            return Arrays.asList("Aguascalientes", "Chihuahua", "Zacatecas");
         }
     }
 }

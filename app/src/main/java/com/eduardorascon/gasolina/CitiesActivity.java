@@ -32,7 +32,7 @@ public class CitiesActivity extends AppCompatActivity implements CitiesActivityV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cities);
 
-        presenter = new CitiesActivityPresenter(this, null);
+        presenter = new CitiesActivityPresenter(this);
         rv = findViewById(R.id.cities_recycler_view);
         rv.setHasFixedSize(true);
         lm = new LinearLayoutManager(this);
