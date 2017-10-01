@@ -35,7 +35,8 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
         rv.setHasFixedSize(true);
         lm = new LinearLayoutManager(this);
         rv.setLayoutManager(lm);
-        //divider
+
+        //RecyclerView divider
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rv.getContext(), lm.getOrientation());
         rv.addItemDecoration(dividerItemDecoration);
     }
