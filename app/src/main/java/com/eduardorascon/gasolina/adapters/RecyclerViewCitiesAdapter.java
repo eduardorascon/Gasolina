@@ -8,8 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.eduardorascon.gasolina.CitiesActivity;
 import com.eduardorascon.gasolina.CityInfo;
+import com.eduardorascon.gasolina.PricesActivity;
 import com.eduardorascon.gasolina.R;
 
 import java.util.ArrayList;
@@ -25,7 +25,7 @@ public class RecyclerViewCitiesAdapter extends RecyclerView.Adapter<RecyclerView
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View v = inflater.inflate(R.layout.recyclerview_item_row, parent, false);
-        RecyclerViewCitiesAdapter.ViewHolder vh = new RecyclerViewCitiesAdapter.ViewHolder(v);
+        ViewHolder vh = new ViewHolder(v);
         return vh;
     }
 
@@ -51,6 +51,7 @@ public class RecyclerViewCitiesAdapter extends RecyclerView.Adapter<RecyclerView
             mTextView = v.findViewById(R.id.state_name);
         }
 
+        //Maybe this can be repleaced with this answer: https://stackoverflow.com/a/33031936
         @Override
         public void onClick(View view) {
 
@@ -59,9 +60,9 @@ public class RecyclerViewCitiesAdapter extends RecyclerView.Adapter<RecyclerView
                 return;
 
             Log.d(TAG, "Position: " + this.getAdapterPosition());
-            //Intent intent = new Intent(view.getContext(), CitiesActivity.class);
-            //intent.putExtra("CIUDAD", mTextView.getText());
-            //view.getContext().startActivity(intent);
+            Intent intent = new Intent(view.getContext(), PricesActivity.class);
+            intent.putExtra("PRECIOS", mTextView.getText());
+            view.getContext().startActivity(intent);
         }
 
         private boolean isClickValid() {
