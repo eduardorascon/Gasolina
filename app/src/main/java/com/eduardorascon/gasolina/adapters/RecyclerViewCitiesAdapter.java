@@ -24,14 +24,16 @@ public class RecyclerViewCitiesAdapter extends RecyclerView.Adapter<RecyclerView
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View v = inflater.inflate(R.layout.states_recyclerview_item_row, parent, false);
+        View v = inflater.inflate(R.layout.cities_recyclerview_item_row, parent, false);
         ViewHolder vh = new ViewHolder(v);
         return vh;
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.cityName.setText(cityList.get(position).getCityName());
+        CityInfo cityInfo = cityList.get(position);
+        holder.cityInfo = cityInfo;
+        holder.cityName.setText(cityInfo.getCityName());
     }
 
     @Override
@@ -43,12 +45,13 @@ public class RecyclerViewCitiesAdapter extends RecyclerView.Adapter<RecyclerView
         private static final String TAG = "ViewHolder";
         private static final long CLICK_TIME_INTERVAL = 300;
         private long mLastClickTime = System.currentTimeMillis();
-        public TextView cityName;
+        private TextView cityName;
+        private CityInfo cityInfo;
 
         public ViewHolder(View v) {
             super(v);
             v.setOnClickListener(this);
-            cityName = v.findViewById(R.id.state_name);
+            cityName = v.findViewById(R.id.city_name);
         }
 
         //Maybe this can be repleaced with this answer: https://stackoverflow.com/a/33031936
@@ -61,7 +64,13 @@ public class RecyclerViewCitiesAdapter extends RecyclerView.Adapter<RecyclerView
 
             Log.d(TAG, "Position: " + this.getAdapterPosition());
             Intent intent = new Intent(view.getContext(), PricesActivity.class);
-            intent.putExtra("PRECIOS", cityName.getText());
+
+            //Maybe change this to a parcelable.
+            intent.putExtra("CIUDAD", cityName.getText());
+            intent.putExtra("MAGNA", cityInfo.getMagna());
+            intent.putExtra("PREMIUM", cityInfo.getPremium());
+            intent.putExtra("DIESEL", cityInfo.getDiesel());
+
             view.getContext().startActivity(intent);
         }
 
