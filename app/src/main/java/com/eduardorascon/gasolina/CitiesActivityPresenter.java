@@ -28,8 +28,8 @@ public class CitiesActivityPresenter {
                 cityList.clear();
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     String cityName = postSnapshot.getKey();
-                    String prices = postSnapshot.getValue().toString();
-                    cityList.add(new CityInfo(cityName, prices));
+                    String cityPrices = postSnapshot.getValue().toString();
+                    cityList.add(new CityInfo(cityName, cityPrices));
                 }
 
                 view.displayCities(cityList);
