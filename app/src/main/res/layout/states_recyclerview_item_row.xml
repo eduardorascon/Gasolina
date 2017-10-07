@@ -25,6 +25,12 @@
         android:textColor="#000"
         android:textSize="24sp"
         android:textStyle="normal"
-        tools:text="NOMBRE DE ESTADO" />
+        tools:paddingBottom="20dp"
+        tools:paddingLeft="16dp"
+        tools:paddingRight="16dp"
+        tools:paddingTop="20dp"
+        tools:text="NOMBRE DE ESTADO"
+        tools:textColor="#000"
+        tools:textSize="24sp" />
 
 </RelativeLayout>

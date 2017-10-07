@@ -24,14 +24,14 @@ public class RecyclerViewCitiesAdapter extends RecyclerView.Adapter<RecyclerView
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View v = inflater.inflate(R.layout.recyclerview_item_row, parent, false);
+        View v = inflater.inflate(R.layout.states_recyclerview_item_row, parent, false);
         ViewHolder vh = new ViewHolder(v);
         return vh;
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.mTextView.setText(cityList.get(position).getCityName());
+        holder.cityName.setText(cityList.get(position).getCityName());
     }
 
     @Override
@@ -43,12 +43,12 @@ public class RecyclerViewCitiesAdapter extends RecyclerView.Adapter<RecyclerView
         private static final String TAG = "ViewHolder";
         private static final long CLICK_TIME_INTERVAL = 300;
         private long mLastClickTime = System.currentTimeMillis();
-        public TextView mTextView;
+        public TextView cityName;
 
         public ViewHolder(View v) {
             super(v);
             v.setOnClickListener(this);
-            mTextView = v.findViewById(R.id.state_name);
+            cityName = v.findViewById(R.id.state_name);
         }
 
         //Maybe this can be repleaced with this answer: https://stackoverflow.com/a/33031936
@@ -61,7 +61,7 @@ public class RecyclerViewCitiesAdapter extends RecyclerView.Adapter<RecyclerView
 
             Log.d(TAG, "Position: " + this.getAdapterPosition());
             Intent intent = new Intent(view.getContext(), PricesActivity.class);
-            intent.putExtra("PRECIOS", mTextView.getText());
+            intent.putExtra("PRECIOS", cityName.getText());
             view.getContext().startActivity(intent);
         }
 
