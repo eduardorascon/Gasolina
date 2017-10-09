@@ -25,7 +25,10 @@
             android:name=".CitiesActivity"
             android:label="@string/title_activity_cities"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".PricesActivity"></activity>
+        <activity
+            android:name=".PricesActivity"
+            android:label="PricesActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
