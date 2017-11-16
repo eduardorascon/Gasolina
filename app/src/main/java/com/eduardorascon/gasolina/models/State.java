@@ -11,4 +11,7 @@ public class State {
 
     @ColumnInfo(name = "nombre_entidad")
     public String name;
+
+    @ColumnInfo(name = "ultima_actualizacion")
+    public Date lastUpdate;
 }
