@@ -3,11 +3,20 @@ package com.eduardorascon.gasolina.models;
 @Dao
 public interface StateDao {
 	@Query("SELECT * FROM estados");
-	List<State> getAll();
+	public List<State> getAll();
 
 	@Query("SELECT COUNT(*) FROM estados");
-	int countStates();
+	public int countStates();
+
+	@Insert
+	public void insertState(State state);
+
+	@Insert
+	public void insertStates(List<State> states);
+
+	@Update
+	public void updateState(State state);
 
 	@Delete
-	void delete(State state);
+	public void deleteState(State state);
 }
