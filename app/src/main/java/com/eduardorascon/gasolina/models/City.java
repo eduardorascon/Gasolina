@@ -4,7 +4,7 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
-@Entity(tableName = "ciudades")
+@Entity(tableName = "ciudades", foreignKeys = @ForeignKey(entity = State.class, parentColumns = "stateId", childColumns = "state_id"))
 public class City {
 	@PrimaryKey(autoGenerate = true)
 	public int cityId;
@@ -12,5 +12,6 @@ public class City {
 	@ColumnInfo(name = "nombre_ciudad")
 	public String name;
 
+	@ColumnInfo(name = "state_id")
 	public int stateId;
 }

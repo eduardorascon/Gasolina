@@ -9,6 +9,6 @@ public class State {
     @PrimaryKey(autoGenerate = true)
     public int stateId;
 
-    @ColumnInfo(name = "entidad")
+    @ColumnInfo(name = "nombre_entidad")
     public String name;
 }
