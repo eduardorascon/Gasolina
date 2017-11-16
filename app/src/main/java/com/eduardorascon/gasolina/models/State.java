@@ -6,8 +6,9 @@ import android.arch.persistence.room.PrimaryKey;
 
 @Entity(tableName = "estados")
 public class State {
-    @PrimaryKey
-    public int StateId;
+    @PrimaryKey(autoGenerate = true)
+    public int stateId;
+
     @ColumnInfo(name = "entidad")
-    public String Name;
+    public String name;
 }
