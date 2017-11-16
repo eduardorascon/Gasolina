@@ -2,10 +2,10 @@ package com.eduardorascon.gasolina.models;
 
 @Dao
 public interface CityDao {
-	@Query("SELECT * FROM ciudades");
-	public List<City> getAll();
+	@Query("SELECT * FROM ciudades WHERE state_id = :stateId");
+	public List<City> getAllCitiesFromState(int stateId);
 
-	@Query("SELECT COUNT(*) FROm ciudades");
+	@Query("SELECT COUNT(*) FROM ciudades");
 	public int countCities();
 
 	@Insert
