@@ -4,7 +4,7 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
-@Entity(tableName = "configuracion")
+@Entity(tableName = "configuracion_firebase")
 public class Setting {
     @PrimaryKey(autoGenerate = true)
     public int settingId;
