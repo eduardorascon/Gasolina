@@ -5,7 +5,7 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
 @Entity(tableName = "configuracion")
-public class Settings {
+public class Setting {
     @PrimaryKey(autoGenerate = true)
     public int settingId;
 
