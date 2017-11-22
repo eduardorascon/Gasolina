@@ -13,14 +13,36 @@ import java.util.Date;
         foreignKeys = @ForeignKey(entity = State.class, parentColumns = "stateId", childColumns = "state_id"))
 public class City {
     @PrimaryKey(autoGenerate = true)
-    public int cityId;
+    private int cityId;
 
     @ColumnInfo(name = "nombre_ciudad")
-    public String name;
+    private String mName;
 
     @ColumnInfo(name = "ultima_actualizacion")
-    public Date lastUpdate;
+    private Date mLastUpdate;
 
     @ColumnInfo(name = "state_id")
-    public int stateId;
+    private int mStateId;
+
+    public City(String name, Date lastUpdate, int stateId) {
+        this.mName = name;
+        this.mLastUpdate = lastUpdate;
+        this.mStateId = stateId;
+    }
+
+    public int getCityId() {
+        return cityId;
+    }
+
+    public String getName() {
+        return mName;
+    }
+
+    public Date getLastUpdate() {
+        return mLastUpdate;
+    }
+
+    public int getStateId() {
+        return mStateId;
+    }
 }

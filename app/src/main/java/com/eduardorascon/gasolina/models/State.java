@@ -9,11 +9,28 @@ import java.util.Date;
 @Entity(tableName = "estados")
 public class State {
     @PrimaryKey(autoGenerate = true)
-    public int stateId;
+    private int stateId;
 
     @ColumnInfo(name = "nombre_entidad")
-    public String name;
+    private String mName;
 
     @ColumnInfo(name = "ultima_actualizacion")
-    public Date lastUpdate;
+    private Date mLastUpdate;
+
+    public State(String name, Date lastUpdate) {
+        this.mName = name;
+        this.mLastUpdate = lastUpdate;
+    }
+
+    public int getStateId() {
+        return stateId;
+    }
+
+    public String getName() {
+        return mName;
+    }
+
+    public Date getLastUpdate() {
+        return mLastUpdate;
+    }
 }
