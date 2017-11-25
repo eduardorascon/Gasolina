@@ -1,5 +1,7 @@
 package com.eduardorascon.gasolina.models;
 
+import android.arch.persistence.room.Insert;
+import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 
 public interface SettingDao {

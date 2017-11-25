@@ -1,8 +1,10 @@
 package com.eduardorascon.gasolina.models;
 
 import android.arch.persistence.room.Database;
+import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.arch.persistence.room.TypeConverters;
+import android.content.Context;
 
 @Database(entities = {State.class, City.class, Setting.class}, version = 1, exportSchema = false)
 @TypeConverters({Converters.class})
