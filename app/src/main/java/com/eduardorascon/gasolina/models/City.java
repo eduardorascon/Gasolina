@@ -10,10 +10,11 @@ import java.util.Date;
 
 @Entity(tableName = "ciudades",
         indices = @Index("state_id"),
-        foreignKeys = @ForeignKey(entity = State.class, parentColumns = "stateId", childColumns = "state_id"))
+        foreignKeys = @ForeignKey(entity = State.class, parentColumns = "state_id", childColumns = "state_id"))
 public class City {
     @PrimaryKey(autoGenerate = true)
-    private int cityId;
+    @ColumnInfo(name = "city_id")
+    private int mCityId;
 
     @ColumnInfo(name = "nombre_ciudad")
     private String mName;
@@ -31,7 +32,7 @@ public class City {
     }
 
     public int getCityId() {
-        return cityId;
+        return mCityId;
     }
 
     public String getName() {

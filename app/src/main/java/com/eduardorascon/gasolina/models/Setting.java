@@ -10,7 +10,7 @@ import java.util.Date;
 public class Setting {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "setting_id")
-    private int settingId;
+    private int mSettingId;
 
     @ColumnInfo(name = "fecha_actualizacion")
     private Date mLastUpdate;
@@ -21,6 +21,10 @@ public class Setting {
     public Setting(Date lastUpdate, Date expirationDate) {
         this.mLastUpdate = lastUpdate;
         this.mExpirationDate = expirationDate;
+    }
+
+    public int getSettingId() {
+        return mSettingId;
     }
 
     public Date getLastUpdate() {

@@ -9,7 +9,8 @@ import java.util.Date;
 @Entity(tableName = "estados")
 public class State {
     @PrimaryKey(autoGenerate = true)
-    private int stateId;
+    @ColumnInfo(name = "state_id")
+    private int mStateId;
 
     @ColumnInfo(name = "nombre_entidad")
     private String mName;
@@ -23,7 +24,7 @@ public class State {
     }
 
     public int getStateId() {
-        return stateId;
+        return mStateId;
     }
 
     public String getName() {
