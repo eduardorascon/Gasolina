@@ -1,9 +1,11 @@
 package com.eduardorascon.gasolina.models;
 
+import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 
+@Dao
 public interface SettingDao {
     @Query("SELECT COUNT(*) FROM configuracion_firebase")
     public int countSettings();
