@@ -10,7 +10,7 @@ import java.util.Date;
 public class State {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "state_id")
-    private int mStateId;
+    private int mId;
 
     @ColumnInfo(name = "nombre_entidad")
     private String mName;
@@ -23,8 +23,12 @@ public class State {
         this.mLastUpdate = lastUpdate;
     }
 
-    public int getStateId() {
-        return mStateId;
+    public int getId() {
+        return mId;
+    }
+
+    public void setId(int id) {
+        this.mId = id;
     }
 
     public String getName() {

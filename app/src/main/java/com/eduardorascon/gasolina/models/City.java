@@ -14,7 +14,7 @@ import java.util.Date;
 public class City {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "city_id")
-    private int mCityId;
+    private int mId;
 
     @ColumnInfo(name = "nombre_ciudad")
     private String mName;
@@ -31,8 +31,12 @@ public class City {
         this.mStateId = stateId;
     }
 
-    public int getCityId() {
-        return mCityId;
+    public int getId() {
+        return mId;
+    }
+
+    public void setId(int id) {
+        mId = id;
     }
 
     public String getName() {
