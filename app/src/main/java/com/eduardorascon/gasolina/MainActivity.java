@@ -26,6 +26,11 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
     }
 
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
