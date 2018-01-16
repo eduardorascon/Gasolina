@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Gasolina - Precios Máximos Vigentes de Combustibles en México</string>
+    <string name="app_name">Gasolina 2017 - Precios Máximos</string>
+    <string name="title_activity_cities">CitiesActivity</string>
+    <string name="action_settings">Settings</string>
 </resources>
